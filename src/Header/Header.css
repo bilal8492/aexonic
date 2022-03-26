@@ -1,0 +1,48 @@
+.main {
+  /* height: 80px; */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgb(12, 21, 47);
+  padding-left: 50px;
+}
+.main > h1 {
+  color: white;
+  font-weight: normal;
+}
+.main > p {
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.input-main {
+  height: 40px;
+  width: 13%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+.input-main > input:focus {
+  outline: none;
+}
+.inp-veg-fav {
+  display: flex;
+  margin-bottom: 20px;
+}
+.veg,
+.fav {
+  height: 40px;
+  width: 7%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  margin-left: 20px;
+}
+.fav {
+  cursor: pointer;
+}
