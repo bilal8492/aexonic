@@ -1,7 +1,7 @@
 import React from 'react'
 import CartPreview from '../CartPreview/CartPreview'
 import Header from '../Header/Header'
-import Product from '../Product/Product'
+import Products from '../Products/Products'
 import './Menu.css'
 const Menu = () => {
     return (
@@ -9,7 +9,7 @@ const Menu = () => {
             <Header />
             <div className='pro-cart'>
                 <div className="product">
-                    <Product />
+                    <Products />
                 </div>
                 <div className="cart">
                     <CartPreview />
