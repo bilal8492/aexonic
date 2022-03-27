@@ -35,6 +35,7 @@ const Checkout = ({ cartItems, addToCart, removeFromCart, clearCart }) => {
                         removeFromCart={removeFromCart}
                         btnText={'Proced to Pay'}
                         clearCart={clearCart}
+                        height={450}
                     />
                 </div>
             </div>

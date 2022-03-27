@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './CartPreview.css'
-const CartPreview = ({ item_name, count, price, cartItems, addToCart, removeFromCart, btnText, clearCart }) => {
+const CartPreview = ({ item_name, count, price, cartItems, addToCart, removeFromCart, btnText, clearCart, position, width, height }) => {
 
     const calculateSubTotal = () => {
         let total = 0;
@@ -15,32 +15,34 @@ const CartPreview = ({ item_name, count, price, cartItems, addToCart, removeFrom
     }
 
     return (
-        <div >
+        <div style={{ position: position, width: width }}>
             <h1>Cart</h1>
 
             <p style={{ color: 'gray', fontWeight: 'bold' }}>{cartItems?.length} ITEMS</p>
             <div onClick={() => clearCart()} className='' style={{ textAlign: 'right', fontWeight: 'bold', fontSize: 18, cursor: 'pointer', marginRight: 20 }}>Clear Cart</div>
-            {
-                cartItems.map((item) => {
-                    return (
-                        <>
-                            <div className='cart-item'>
-                                <div className='veg-non'>
-                                    <div className="cirlcle"></div>
+            <div style={{ height: height, overflow: 'auto' }}>
+                {
+                    cartItems.map((item) => {
+                        return (
+                            <>
+                                <div className='cart-item'>
+                                    <div className='veg-non'>
+                                        <div className="cirlcle"></div>
+                                    </div>
+                                    <p className='item-order'>{item.item_name}</p>
+                                    <div className="counter-main-cart">
+                                        <button onClick={() => removeFromCart(item.id)} className='minus'>-</button>
+                                        <span style={{ color: '#218d21' }}>{item.count}</span>
+                                        <button onClick={() => addToCart(item.id)} className='plus'>+</button>
+                                    </div>
+                                    <p className='price'>₹ {item.count * item.price}</p>
                                 </div>
-                                <p className='item-order'>{item.item_name}</p>
-                                <div className="counter-main-cart">
-                                    <button onClick={() => removeFromCart(item.id)} className='minus'>-</button>
-                                    <span style={{ color: '#218d21' }}>{item.count}</span>
-                                    <button onClick={() => addToCart(item.id)} className='plus'>+</button>
-                                </div>
-                                <p className='price'>₹ {item.count * item.price}</p>
-                            </div>
 
-                        </>
-                    )
-                })
-            }
+                            </>
+                        )
+                    })
+                }
+            </div>
             <div className="subTotal-price">
                 <div>
                     <h1 style={{ color: '#444c53' }}>Subtotal</h1>

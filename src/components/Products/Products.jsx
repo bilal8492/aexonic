@@ -37,13 +37,15 @@ const Products = ({ itemName, addToCart, removeFromCart, getCount, cartItems, cl
         }
       </div> */}
       <div className='right-cart'>
-        total: {cartItems?.length}
         <CartPreview
           cartItems={cartItems}
           addToCart={addToCart}
           removeFromCart={removeFromCart}
           btnText={'Checkout →'}
           clearCart={clearCart}
+          position={'fixed'}
+          width={'30%'}
+          height={400}
         />
       </div>
     </div>
