@@ -3,20 +3,10 @@ import CartPreview from '../CartPreview/CartPreview'
 import Header from '../Header/Header'
 import Products from '../Products/Products'
 import './Menu.css'
-const Menu = () => {
+const Menu = ({ addToCart, removeFromCart, getCount, cartItems, itemName, clearCart }) => {
     return (
         <div className='menu-main'>
-            <Header />
-            <div className='pro-cart'>
-                <div className="product">
-                    <Products />
-                </div>
-                <div className="cart">
-                    <CartPreview />
-                </div>
-
-            </div>
-
+            <Products addToCart={addToCart} removeFromCart={removeFromCart} getCount={getCount} cartItems={cartItems} itemName={itemName} clearCart={clearCart} />
         </div>
     )
 }

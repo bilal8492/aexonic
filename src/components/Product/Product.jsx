@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './Product.css'
-const Product = ({ item_name, price }) => {
-    const [count, setCount] = useState(0);
-
+const Product = ({ id, item_name, price, addToCart, removeFromCart, cartItems, getCount }) => {
     const countPlus = () => {
-        // if () {
-        setCount(count + 1)
-        // }
+        addToCart(id)
     }
     const countMinus = () => {
-        if (count > 0) {
-            setCount(count - 1)
-        }
+        removeFromCart(id);
+
     }
 
     return (
@@ -31,7 +26,7 @@ const Product = ({ item_name, price }) => {
                     </div>
                     <div className="counter-main">
                         <button onClick={countMinus} className='minus'>-</button>
-                        <span style={{ color: '#218d21' }}>{count}</span>
+                        <span style={{ color: '#218d21' }}>{getCount(id)}</span>
                         <button onClick={countPlus} className='plus'>+</button>
                     </div>
                 </div>

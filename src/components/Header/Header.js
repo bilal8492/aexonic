@@ -1,7 +1,13 @@
-import React from "react";
-import { AiFillStar, AiOutlineSearch, AiOutlineHeart } from "react-icons/ai";
+import React, { useState } from "react";
+import {
+  AiFillStar,
+  AiOutlineSearch,
+  AiOutlineHeart,
+  AiFillHeart,
+} from "react-icons/ai";
 import "./Header.css";
 const Header = () => {
+  const [heart, setHeart] = useState(false);
   return (
     <div className="main">
       <h1>McDonald's</h1>
@@ -30,8 +36,19 @@ const Header = () => {
             Veg Only
           </span>
         </div>
-        <div className="fav">
-          <AiOutlineHeart size={25} />{" "}
+        <div
+          className="fav"
+          onClick={() => {
+            setHeart(!heart);
+            console.log(heart);
+          }}
+        >
+          {heart ? (
+            <AiFillHeart color="red" size={25} />
+          ) : (
+            <AiOutlineHeart color="#000" size={25} />
+          )}
+
           <span
             style={{
               marginLeft: 15,

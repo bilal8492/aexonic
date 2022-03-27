@@ -1,34 +1,53 @@
 import React, { useEffect, useState } from 'react';
+import CartPreview from '../CartPreview/CartPreview';
 import Product from '../Product/Product';
-const Products = () => {
-    const [itemName, setItemName] = useState([]);
-    useEffect(() => {
-        var requestOptions = {
-            method: 'GET',
-            redirect: 'follow'
-        };
+import './Products.css';
+const Products = ({ itemName, addToCart, removeFromCart, getCount, cartItems, clearCart }) => {
 
-        fetch("https://run.mocky.io/v3/9d71cb03-a9f9-4d70-bae2-9d3adaa1cfe7", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-                setItemName(result);
-                // console.log(result.item_name)
-            })
-            .catch(error => console.log('error', error));
-    }, [])
-    return (
-        <>
-            {
-                itemName?.map((item) => {
-                    return (
-                        <Product
-                            {...item}
-                        />
-                    )
-                })
-            }
-        </>
-    )
+  return (
+    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8%' }}>
+      <div className='product-left'>
+        {
+          itemName?.map((item) => {
+            return (
+              <Product
+                key={item.id}
+                {...item}
+                addToCart={addToCart}
+                removeFromCart={removeFromCart}
+                getCount={getCount}
+              />
+            )
+          })
+        }
+      </div>
+      {/* <div>
+
+        {
+          cartItems?.map((item) => {
+            return (
+              <div key={item.id}>
+                <p>{item.item_name}</p>
+                <p>{item.count}</p>
+                <p>{item.price * item.count}</p>
+              </div>
+            )
+          })
+
+        }
+      </div> */}
+      <div className='right-cart'>
+        total: {cartItems?.length}
+        <CartPreview
+          cartItems={cartItems}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
+          btnText={'Checkout →'}
+          clearCart={clearCart}
+        />
+      </div>
+    </div>
+  )
 }
 
 export default Products

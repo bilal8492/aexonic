@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #d9e7eb;
+}
+.checkout-main {
+  margin-top: 8%;
+  width: 40vw;
+  height: 80vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  box-shadow: -3px 3px 10px 2px rgba(122, 120, 120, 0.75);
+  overflow: auto;
+}
+.close {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
